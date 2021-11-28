@@ -1,0 +1,70 @@
+// карточки
+@primary: #6610f2;
+@danger: #dc3545;
+@warning: #fd7e14;
+@success: #20c997;
+// текст
+@body-text: #000;
+@nav-text: #fff;
+@card-button-text: inherit;
+@card-button-text-hover: #fff;
+// разное
+@theme-btn: #FFF;
+@body: #FFF;
+@nav: #0d6efd;
+@card: #fff;
+@nav-height: 60px;
+@nav-fs: 15px;
+
+.card-type-color(@type){
+	.@{type}{
+		& .title{
+			color: @@type;
+			border-bottom-color: transparent;
+		}
+		& button{
+			border-color: @@type;
+			background-color: inherit;
+			&:hover{
+				border-color: @@type;
+				background-color: @@type;
+			}
+		}
+	}
+}
+
+body{
+	background-color: @body;
+	color: @body-text;
+}
+nav{
+	height: @nav-height;
+	background-color: @nav;
+	& ul li{
+		&:hover{
+			background-color: lighten(@nav,10%);
+		}
+		& a{
+			font-size: @nav-fs;
+			color: @nav-text;
+			&:hover{
+				font-size: @nav-fs + 1px;
+			}
+		}
+	}
+}
+button{
+	background-color: @theme-btn;
+	color: @card-button-text;
+}
+.card{
+	background-color: @card;
+	&  button:hover{
+		color: @card-button-text-hover;
+	}
+}
+.card-type-color(primary);
+.card-type-color(danger);
+.card-type-color(warning);
+.card-type-color(success);
+
